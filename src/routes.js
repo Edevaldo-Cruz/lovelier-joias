@@ -5,8 +5,8 @@ import { Adm } from "./Pages/Adm";
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/adm" element={<Home />} />
-      <Route path="/" element={<Adm />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/adm" element={<Adm />} />
     </Routes>
   );
 };
