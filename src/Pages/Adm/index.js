@@ -34,8 +34,15 @@ export function Adm() {
   const handleFormSubmit = async (values) => {
     try {
       const response = await axios.post(
-        "https://apilovelier.onrender.com/produto",
-        values
+        "http://localhost:3000/produto",
+        values,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "http://localhost:3000",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type",
+          },
+        }
       );
       console.log(response.data); // Você pode tratar a resposta conforme necessário
       // Limpar o formulário após o envio bem-sucedido, se desejar
@@ -100,7 +107,7 @@ export function Adm() {
               },
             ]}
           >
-            <Input />
+            <Input type="number" />
           </Form.Item>
           <Form.Item
             name="imagemProduto"
@@ -115,11 +122,11 @@ export function Adm() {
           </Form.Item>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Form.Item name="disponibilidadeProduto" label="Disponibilidade">
-              <Switch />
+              <Switch checked={false} />
             </Form.Item>
 
             <Form.Item name="destaqueProduto" label="Destaque?">
-              <Switch />
+              <Switch checked={false} />
             </Form.Item>
           </div>
 
