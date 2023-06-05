@@ -101,12 +101,17 @@ const Navbar = () => {
           backgroundColor: "#EFD6D1",
         }}
       >
-        <div>
+        <div style={{ width: "6rem" }}>
           <div onClick={showDrawer}>
             <AiOutlineMenu size={25} color="#7E2228" />
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <img
             style={{ maxWidth: "45%", height: "auto" }}
             src={logo}
