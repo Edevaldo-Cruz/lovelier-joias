@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Container } from "@mui/material";
 import Navbar from "../../Components/Navbar";
 import { InputDefault } from "./styles";
-import { Alert } from "antd";
-import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
 export function LoginAdm() {
@@ -53,7 +51,6 @@ export function LoginAdm() {
               marginTop: "2rem",
             }}
           >
-           
             <Link
               style={{
                 padding: "0.5rem 1rem",

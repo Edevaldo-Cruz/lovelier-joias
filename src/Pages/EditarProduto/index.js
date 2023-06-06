@@ -54,13 +54,7 @@ export function EditarProduto() {
         }
       );
       console.log(response.data);
-      setNome("");
-      setDescricao("");
-      setCategoria("");
-      setPreco("");
-      setImagem("");
-      setDisponibilidade(false);
-      setDestaque(false);
+      window.location.href = "/adm";
     } catch (error) {
       console.error(error.message);
     }
