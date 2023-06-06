@@ -6,6 +6,7 @@ import {
   AiOutlineSearch,
 } from "react-icons/ai";
 import logo from "../../Assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   //Autocomplete
@@ -173,9 +174,9 @@ const Navbar = () => {
         open={open}
         placement={"left"}
       >
-        <Button type="primary" onClick={showChildrenDrawer}>
-          Two-level drawer
-        </Button>
+        <Link to="/loginAdm" type="primary" onClick={showChildrenDrawer}>
+          Login Administrativo
+        </Link>
         <Drawer
           title="Two-level Drawer"
           width={320}
