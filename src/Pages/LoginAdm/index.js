@@ -9,13 +9,7 @@ export function LoginAdm() {
   const [senha, setSenha] = useState("");
 
   const handleClick = () => {
-    if (login === "teste" && senha === "teste") {
-      // Redireciona para a página /adm
-      window.location.href = "/adm";
-    } else {
-      // Exibe um alerta de senha inválida
-      window.alert("Senha inválida!");
-    }
+    window.alert("Senha inválida!");
   };
 
   return (
@@ -51,21 +45,39 @@ export function LoginAdm() {
               marginTop: "2rem",
             }}
           >
-            <Link
-              style={{
-                padding: "0.5rem 1rem",
-                borderRadius: "4px",
-                border: "none",
-                background: "#007bff",
-                color: "#fff",
-                fontSize: "1rem",
-                cursor: "pointer",
-                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              }}
-              onClick={handleClick}
-            >
-              Entrar
-            </Link>
+            {senha === "teste" && login === "teste" ? (
+              <Link
+                to="/adm"
+                style={{
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  border: "none",
+                  background: "#007bff",
+                  color: "#fff",
+                  fontSize: "1rem",
+                  cursor: "pointer",
+                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                Entrar
+              </Link>
+            ) : (
+              <button
+                style={{
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  border: "none",
+                  background: "#007bff",
+                  color: "#fff",
+                  fontSize: "1rem",
+                  cursor: "pointer",
+                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                }}
+                onClick={handleClick}
+              >
+                Entrar
+              </button>
+            )}
           </div>
         </form>
       </Container>
