@@ -3,7 +3,7 @@ import axios from "axios";
 import { Container } from "@mui/material";
 import Navbar from "../../Components/Navbar";
 import { InputDefault } from "./styles";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export function EditarProduto() {
@@ -15,6 +15,7 @@ export function EditarProduto() {
   const [disponibilidade, setDisponibilidade] = useState(false);
   const [destaque, setDestaque] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +55,7 @@ export function EditarProduto() {
         }
       );
       console.log(response.data);
-      window.location.href = "/adm";
+      navigate("/adm");
     } catch (error) {
       console.error(error.message);
     }
@@ -66,7 +67,7 @@ export function EditarProduto() {
       const response = await axios.delete(
         `https://apilovelier.onrender.com/produtos/${id}`
       );
-      window.location.href = "/adm";
+      navigate("/adm");
     } catch (error) {
       console.error(error.message);
     }
