@@ -27,13 +27,22 @@ export function Adm({ produtos }) {
                 padding: "0.2rem",
               }}
             >
+              {/* <iframe
+                src={produto.imagem}
+                width="30%"
+                height="100%"
+                allow="autoplay"
+              /> */}
+
               <img
                 src={produto.imagem}
                 alt="produto"
                 style={{
                   width: "30%",
-                  height: "5rem",
-                  backgroundColor: "gray",
+                  height: "100%",
+                  objectFit: "cover", // Para garantir que a imagem ocupe todo o espaço disponível
+                  border: "none", // Para remover a borda
+                  display: "block", // Para remover o espaço reservado para ícone
                 }}
               />
 

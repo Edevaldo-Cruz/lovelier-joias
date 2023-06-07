@@ -1,8 +1,8 @@
-// import { useState } from "react";
-// import { Container } from "@mui/material";
-// import Navbar from "../../Components/Navbar";
-// import { InputDefault } from "./styles";
-// import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Container } from "@mui/material";
+import Navbar from "../../Components/Navbar";
+import { InputDefault } from "./styles";
+import { Link } from "react-router-dom";
 
 // export function LoginAdm() {
 //   const [login, setLogin] = useState("");
@@ -107,18 +107,48 @@ export function LoginAdm() {
   };
 
   return (
-    <div>
-      <label>
-        Login:
-        <input type="text" id="login" />
-      </label>
-      <br />
-      <label>
-        Senha:
-        <input type="password" id="senha" />
-      </label>
-      <br />
-      <button onClick={handleLogin}>Entrar</button>
-    </div>
+    <>
+      <Navbar />
+      <Container>
+        <form style={{ marginTop: "2rem" }}>
+          {/* onSubmit={handleFormSubmit} */}
+          <label>
+            Login:
+            <InputDefault type="text" id="login" />
+          </label>
+
+          <br />
+
+          <label>
+            Senha:
+            <InputDefault type="password" id="senha" />
+          </label>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "end",
+              marginTop: "2rem",
+            }}
+          >
+            <button
+              style={{
+                padding: "0.5rem 1rem",
+                borderRadius: "4px",
+                border: "none",
+                background: "#007bff",
+                color: "#fff",
+                fontSize: "1rem",
+                cursor: "pointer",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+              }}
+              onClick={handleLogin}
+            >
+              Entrar
+            </button>
+          </div>
+        </form>
+      </Container>
+    </>
   );
 }
