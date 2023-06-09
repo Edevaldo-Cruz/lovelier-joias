@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Navbar from "../../Components/Navbar";
-import { InputDefault } from "./styles";
+import { InputDefault, ContainerLogin } from "./styles";
 import { Link } from "react-router-dom";
+import logo from "../../Assets/logo.png";
 
 // export function LoginAdm() {
 //   const [login, setLogin] = useState("");
@@ -86,6 +87,7 @@ import { Link } from "react-router-dom";
 // }
 
 import { useNavigate } from "react-router-dom";
+import { Row } from "antd";
 
 export function LoginAdm() {
   const navigate = useNavigate();
@@ -99,7 +101,7 @@ export function LoginAdm() {
 
     if (inputLogin === login && inputSenha === senha) {
       // Redireciona para a página /adm
-      navigate("/adm");
+      navigate("/AreaAdm");
     } else {
       // Exibe uma mensagem de erro
       alert("Login ou senha incorretos");
@@ -107,28 +109,52 @@ export function LoginAdm() {
   };
 
   return (
-    <>
-      <Navbar />
-      <Container>
-        <form style={{ marginTop: "2rem" }}>
-          {/* onSubmit={handleFormSubmit} */}
-          <label>
-            Login:
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <ContainerLogin>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            style={{ width: "auto", height: "6rem" }}
+            src={logo}
+            alt="logo"
+          />
+        </div>
+        <form>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+            <label
+              style={{
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              Login
+            </label>
             <InputDefault type="text" id="login" />
-          </label>
+          </Row>
 
-          <br />
-
-          <label>
-            Senha:
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+            <label
+              style={{
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              Senha:
+            </label>
             <InputDefault type="password" id="senha" />
-          </label>
+          </Row>
 
           <div
             style={{
               display: "flex",
-              justifyContent: "end",
-              marginTop: "2rem",
+              justifyContent: "center",
+              margin: "2rem 0",
             }}
           >
             <button
@@ -148,7 +174,7 @@ export function LoginAdm() {
             </button>
           </div>
         </form>
-      </Container>
-    </>
+      </ContainerLogin>
+    </div>
   );
 }

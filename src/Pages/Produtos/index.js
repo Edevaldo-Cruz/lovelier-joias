@@ -3,10 +3,10 @@ import Navbar from "../../Components/Navbar";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-export function Adm({ produtos }) {
+export function Produtos({ produtos }) {
   return (
     <>
-      <Navbar />
+      <Navbar modo={"AdicionarProduto"} />
       <Container>
         {produtos.map((produto, index) => (
           <Link
@@ -50,21 +50,6 @@ export function Adm({ produtos }) {
             </div>
           </Link>
         ))}
-
-        <div style={{ position: "relative" }}>
-          <Link
-            to="/adicionarProduto"
-            style={{
-              position: "fixed",
-              bottom: "0",
-              right: "0",
-              margin: "20px",
-              zIndex: "999",
-            }}
-          >
-            <IoIosAddCircleOutline size={65} />
-          </Link>
-        </div>
       </Container>
     </>
   );

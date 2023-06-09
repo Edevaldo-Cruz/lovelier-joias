@@ -18,7 +18,7 @@ export function AdicionarProduto() {
 
     try {
       const response = await axios.post(
-        "https://apilovelier.onrender.com/produto",
+        "https://apilovelier.onrender.com/categoria",
         {
           nome,
           descricao,

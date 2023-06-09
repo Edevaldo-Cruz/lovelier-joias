@@ -4,11 +4,13 @@ import {
   AiOutlineMenu,
   AiOutlineShopping,
   AiOutlineSearch,
+  AiOutlineAppstoreAdd,
 } from "react-icons/ai";
+import { BiArrowBack } from "react-icons/bi";
 import logo from "../../Assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ modo }) => {
   //Autocomplete
   const getRandomInt = (max, min = 0) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
@@ -49,6 +51,11 @@ const Navbar = () => {
   };
   const onSelect = (value) => {
     console.log("onSelect", value);
+  };
+
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
   };
 
   //Drawer
@@ -119,16 +126,17 @@ const Navbar = () => {
             alt="Logo lovelier joias"
           />
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "6rem",
-          }}
-        >
-          <AiOutlineSearch size={25} color="#7E2228" />
+        {modo === "user" ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "6rem",
+            }}
+          >
+            <AiOutlineSearch size={25} color="#7E2228" />
 
-          {/* <Collapse bordered={false} defaultActiveKey={["1"]}>
+            {/* <Collapse bordered={false} defaultActiveKey={["1"]}>
             <Panel
               showArrow={false}
               header={<AiOutlineSearch size={25} color="#7E2228" />}
@@ -138,15 +146,41 @@ const Navbar = () => {
             </Panel>
           </Collapse> */}
 
-          <Popover
-            placement="bottomLeft"
-            title={text}
-            content={content}
-            trigger="click"
+            <Popover
+              placement="bottomLeft"
+              title={text}
+              content={content}
+              trigger="click"
+            >
+              <AiOutlineShopping size={25} color="#7E2228" />{" "}
+            </Popover>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "6rem",
+            }}
           >
-            <AiOutlineShopping size={25} color="#7E2228" />{" "}
-          </Popover>
-        </div>
+            <div onClick={handleGoBack}>
+              <BiArrowBack size={25} color="#7E2228" />
+            </div>
+            {modo === "adm" ? (
+              <></>
+            ) : (
+              <Link
+                to={
+                  modo === "AdicionarProduto"
+                    ? "/adicionarProduto"
+                    : "/adicionarCategoria"
+                }
+              >
+                <AiOutlineAppstoreAdd size={25} color="#7E2228" />
+              </Link>
+            )}
+          </div>
+        )}
       </div>
       {/* <AutoComplete
         dropdownMatchSelectWidth={252}
