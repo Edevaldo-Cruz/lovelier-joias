@@ -2,6 +2,7 @@ import Cards from "../../Components/Cards";
 import Navbar from "../../Components/Navbar";
 import logo from "../../Assets/logo.png";
 import { Col, Row } from "antd";
+import loading from "../../Assets/cir.gif";
 
 export default function Home({ produtos }) {
   return (
@@ -20,7 +21,8 @@ export default function Home({ produtos }) {
               alignItems: "center",
               width: "100vw",
               height: "100vh",
-              backgroundColor: "#F2C4C4",
+              backgroundColor: "#F8E8D8",
+              margin: "0",
             }}
           >
             <Col>
@@ -31,6 +33,7 @@ export default function Home({ produtos }) {
                 <h2 style={{ textAlign: "center", color: "#7E2228" }}>
                   Aguarde, selecionando os melhores produtos para você...
                 </h2>
+                <img src={loading} alt="gif" />
               </Row>
             </Col>
           </div>

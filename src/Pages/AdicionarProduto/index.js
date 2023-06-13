@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container } from "@mui/material";
 import Navbar from "../../Components/Navbar";
 import { InputDefault } from "./styles";
 
-export function AdicionarProduto() {
+export function AdicionarProduto({ categorias }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -18,7 +18,7 @@ export function AdicionarProduto() {
 
     try {
       const response = await axios.post(
-        "https://apilovelier.onrender.com/categoria",
+        "https://apilovelier.onrender.com/produto",
         {
           nome,
           descricao,
@@ -70,11 +70,20 @@ export function AdicionarProduto() {
           <br />
           <label>
             Categoria:
-            <InputDefault
+            {/* <InputDefault
               type="text"
               value={categoria}
               onChange={(e) => setCategoria(e.target.value)}
-            />
+            /> */}
+            <select
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
+            >
+              <option>Selecione uma categoria</option>
+              {categorias.map((categoria, index) => (
+                <option key={index}>{categoria.nome}</option>
+              ))}
+            </select>
           </label>
           <br />
           <label>
@@ -119,14 +128,14 @@ export function AdicionarProduto() {
                 padding: "0.5rem 1rem",
                 borderRadius: "4px",
                 border: "none",
-                background: "#007bff",
+                background: "#7E2228",
                 color: "#fff",
                 fontSize: "1rem",
                 cursor: "pointer",
                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
               }}
             >
-              Enviar
+              Salvar
             </button>
           </div>
         </form>

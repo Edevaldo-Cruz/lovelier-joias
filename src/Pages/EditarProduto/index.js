@@ -67,7 +67,7 @@ export function EditarProduto() {
       const response = await axios.delete(
         `https://apilovelier.onrender.com/produtos/${id}`
       );
-      navigate("/adm");
+      navigate("/produtos");
     } catch (error) {
       console.error(error.message);
     }
@@ -165,7 +165,7 @@ export function EditarProduto() {
                 padding: "0.5rem 1rem",
                 borderRadius: "4px",
                 border: "none",
-                background: "#007bff",
+                background: "#7E2228",
                 color: "#fff",
                 fontSize: "1rem",
                 cursor: "pointer",
