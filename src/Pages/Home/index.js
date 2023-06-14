@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar";
 import logo from "../../Assets/logo.png";
 import { Col, Row } from "antd";
 import loading from "../../Assets/cir.gif";
-import Slide from "../../Components/Carousel";
+import SlidesComponents from "../../Components/SlidesComponents";
 
 export default function Home({ produtos }) {
   return (
@@ -11,7 +11,7 @@ export default function Home({ produtos }) {
       {produtos.length > 0 ? (
         <>
           <Navbar modo={"user"} />
-          <Slide />
+          <SlidesComponents />
           <Cards produtos={produtos} />
         </>
       ) : (

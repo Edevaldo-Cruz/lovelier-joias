@@ -1,6 +1,5 @@
 import { Container } from "@mui/material";
 import Navbar from "../../Components/Navbar";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 export function Categorias({ categorias }) {

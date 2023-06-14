@@ -10,7 +10,7 @@ const contentStyle = {
   lineHeight: "160px",
   textAlign: "center",
 };
-export default function Slide() {
+export default function SlidesComponents() {
   return (
     <Carousel autoplay>
       <div>

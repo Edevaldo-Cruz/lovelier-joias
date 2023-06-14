@@ -52,6 +52,26 @@ export function AreaAdm() {
             <h3>Categorias</h3>
           </Link>
         </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: "4rem",
+            backgroundColor: "#FDDDE1",
+            borderRadius: "0.5rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <Link
+            to="/slides"
+            style={{ color: "#7E2228", textDecoration: "none" }}
+          >
+            <h3>Slides</h3>
+          </Link>
+        </div>
       </Container>
     </>
   );

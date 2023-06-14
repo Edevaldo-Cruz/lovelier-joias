@@ -10,6 +10,7 @@ import { AreaAdm } from "./Pages/AreaAdm";
 import { Categorias } from "./Pages/Categorias";
 import { AdicionarCategoria } from "./Pages/AdicionarCategoria";
 import { EditarCategoria } from "./Pages/EditarCategoria";
+import { Slides } from "./Pages/Slides";
 
 const AppRoutes = () => {
   const [produtos, setProdutos] = useState([]);
@@ -60,6 +61,7 @@ const AppRoutes = () => {
         path="/categorias"
         element={<Categorias categorias={categorias} />}
       />
+      <Route path="/slides" element={<Slides />} />
       <Route
         path="/adicionarProduto"
         element={<AdicionarProduto categorias={categorias} />}
