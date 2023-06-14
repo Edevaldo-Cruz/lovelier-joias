@@ -2,6 +2,7 @@ import { AutoComplete, Input, Button, Drawer, Popover, Collapse } from "antd";
 import { useState } from "react";
 import {
   AiOutlineMenu,
+  AiOutlineHome,
   AiOutlineShopping,
   AiOutlineSearch,
   AiOutlineAppstoreAdd,
@@ -109,11 +110,20 @@ const Navbar = ({ modo }) => {
           backgroundColor: "#EFD6D1",
         }}
       >
-        <div style={{ width: "6rem" }}>
-          <div onClick={showDrawer}>
-            <AiOutlineMenu size={25} color="#7E2228" />
+        {modo === "user" ? (
+          <div style={{ width: "6rem" }}>
+            <div onClick={showDrawer}>
+              <AiOutlineMenu size={25} color="#7E2228" />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div style={{ width: "6rem" }}>
+            <Link to="/">
+              <AiOutlineHome size={25} color="#7E2228" />
+            </Link>
+          </div>
+        )}
+
         <div
           style={{
             display: "flex",

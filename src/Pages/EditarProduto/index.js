@@ -55,7 +55,7 @@ export function EditarProduto() {
         }
       );
       console.log(response.data);
-      navigate("/adm");
+      navigate("/produtos");
     } catch (error) {
       console.error(error.message);
     }
