@@ -1,46 +1,45 @@
 import { Carousel } from "antd";
-import img1 from "../../Assets/slide/img1.webp";
-import img2 from "../../Assets/slide/img2.webp";
-import img3 from "../../Assets/slide/img3.webp";
-import img4 from "../../Assets/slide/img4.webp";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const contentStyle = {
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-};
 export default function SlidesComponents() {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://apilovelier.onrender.com/banners"
+        );
+        console.log(response.data);
+        setBanners(response.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <Carousel autoplay>
-      <div>
-        <img
-          style={{ width: "100%", height: "25rem" }}
-          src={img1}
-          alt="imagem 1"
-        />
-      </div>
-      <div>
-        <img
-          style={{ width: "100%", height: "25rem" }}
-          src={img2}
-          alt="imagem 2"
-        />
-      </div>
-      <div>
-        <img
-          style={{ width: "100%", height: "25rem" }}
-          src={img3}
-          alt="imagem 3"
-        />
-      </div>
-      <div>
-        <img
-          style={{ width: "100%", height: "25rem" }}
-          src={img4}
-          alt="imagem 4"
-        />
-      </div>
+      {banners
+        .filter(
+          (banner) =>
+            banner.ativo === true &&
+            // !banner.dataValidade &&
+            // new Date(banner.dataValidade) >= new Date()
+            (!banner.dataValidade ||
+              new Date(banner.dataValidade) >= new Date())
+        )
+        .map((banner, index) => (
+          <div key={index}>
+            <img
+              style={{ width: "100%", height: "25rem" }}
+              src={banner.imagem}
+              alt={banner.descricao}
+            />
+          </div>
+        ))}
     </Carousel>
   );
 }

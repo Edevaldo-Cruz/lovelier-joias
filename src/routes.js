@@ -11,6 +11,8 @@ import { Categorias } from "./Pages/Categorias";
 import { AdicionarCategoria } from "./Pages/AdicionarCategoria";
 import { EditarCategoria } from "./Pages/EditarCategoria";
 import { Slides } from "./Pages/Slides";
+import { AdicionarSilde } from "./Pages/AdicionarSlide";
+import { EditarSlide } from "./Pages/EditarSlide";
 
 const AppRoutes = () => {
   const [produtos, setProdutos] = useState([]);
@@ -61,7 +63,7 @@ const AppRoutes = () => {
         path="/categorias"
         element={<Categorias categorias={categorias} />}
       />
-      <Route path="/slides" element={<Slides />} />
+      <Route path="/slides" element={<Slides produtos={produtos} />} />
       <Route
         path="/adicionarProduto"
         element={<AdicionarProduto categorias={categorias} />}
@@ -69,6 +71,8 @@ const AppRoutes = () => {
       <Route path="/editarProduto/:id" element={<EditarProduto />} />
       <Route path="/adicionarCategoria" element={<AdicionarCategoria />} />
       <Route path="/editarCategoria/:id" element={<EditarCategoria />} />
+      <Route path="/adicionarSlide" element={<AdicionarSilde />} />
+      <Route path="/editarSlide/:id" element={<EditarSlide />} />
     </Routes>
   );
 };

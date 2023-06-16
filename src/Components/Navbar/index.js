@@ -183,7 +183,11 @@ const Navbar = ({ modo }) => {
                 to={
                   modo === "AdicionarProduto"
                     ? "/adicionarProduto"
-                    : "/adicionarCategoria"
+                    : modo === "AdicionarCategoria"
+                    ? "/adicionarCategoria"
+                    : modo === "AdicionarSlide"
+                    ? "/adicionarSlide"
+                    : "/"
                 }
               >
                 <AiOutlineAppstoreAdd size={25} color="#7E2228" />

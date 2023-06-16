@@ -1,16 +1,33 @@
+import { useState, useEffect } from "react";
 import { Container } from "@mui/material";
 import Navbar from "../../Components/Navbar";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export function Slides({ produtos }) {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://apilovelier.onrender.com/banners"
+        );
+        setBanners(response.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
-      <Navbar modo={"AdicionarProduto"} />
+      <Navbar modo={"AdicionarSlide"} />
       <Container>
-        {produtos.map((produto, index) => (
+        {banners.map((banner, index) => (
           <Link
-            to={`/editarProduto/${produto._id}`}
+            to={`/editarSlide/${banner._id}`}
             key={index}
             style={{
               display: "flex",
@@ -27,26 +44,18 @@ export function Slides({ produtos }) {
                 padding: "0.2rem",
               }}
             >
-              {/* <iframe
-                src={produto.imagem}
-                width="30%"
-                height="100%"
-                allow="autoplay"
-              /> */}
-
               <img
-                src={produto.imagem}
-                alt="produto"
+                src={banner.imagem}
+                alt={banner.descricao}
                 style={{
                   width: "30%",
                   height: "100%",
-                  objectFit: "cover", // Para garantir que a imagem ocupe todo o espaço disponível
-                  border: "none", // Para remover a borda
-                  display: "block", // Para remover o espaço reservado para ícone
+                  objectFit: "cover",
+                  border: "none",
+                  display: "block",
                 }}
               />
-
-              <h4>{produto.nome}</h4>
+              <h4>{banner.descricao}</h4>
             </div>
           </Link>
         ))}
